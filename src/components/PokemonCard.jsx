@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
 import styled from "@emotion/styled";
+import { css } from "@emotion/react";
 
 const Button = styled.button`
   padding: 32px;
@@ -15,9 +16,14 @@ const Button = styled.button`
   }
 `;
 
-const PokemonNameCard = styled.div`
+const PokemonTitleCard = styled.div`
   text-align: center;
   text-transform: uppercase;
+`;
+
+const PokemonOwnedCard = styled.div`
+  text-align: center;
+  background-color: greenyellow;
 `;
 
 export default function PokemonCard({ name, artwork, owned }) {
@@ -32,15 +38,32 @@ export default function PokemonCard({ name, artwork, owned }) {
     }
   };
 
+  const Image = styled.img`
+    width: 100%;
+    border-radius: 12px;
+    height: 250px;
+    background-color: whitesmoke;
+    margin-bottom: 10px;
+  `;
+
   return (
     <>
       <Col md={4} xs={6} lg={3}>
-        <div>
-          <PokemonNameCard>{name}</PokemonNameCard>
+        <div
+          style={{
+            backgroundColor: "yellow",
+            marginTop: "2vh",
+            border: "1px solid #bacdd8",
+            padding: "8px",
+            borderRadius: "12px",
+          }}
+        >
+          <PokemonTitleCard>{name}</PokemonTitleCard>
           <Link to={`/pokemon/${name}`}>
-            <img src={artwork} width="100%" alt={name} />
+            {/* <img src={artwork} width="100%" alt={name} /> */}
+            <Image src={artwork} alt={name} />
           </Link>
-          <p>Owned: </p>
+          <PokemonOwnedCard>Owned: </PokemonOwnedCard>
         </div>
       </Col>
     </>
