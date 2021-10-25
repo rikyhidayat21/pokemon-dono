@@ -9,8 +9,9 @@ export default function PokemonCard({ pokemon }) {
         <div >
           {pokemon.name}
           <Link to={`/pokemon/${pokemon.name}`}>
-            <img src={pokemon.image} />
+            <img src={pokemon.artwork} width="100%" />
           </Link>
+          <p>Owned: </p>
         </div>
       </Col>
     </>

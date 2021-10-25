@@ -6,6 +6,8 @@ body {
     font-family: "Henny Penny", cursive;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: honeydew;
+    min-height: 100vh;
 }
 
 code {
