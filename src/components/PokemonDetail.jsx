@@ -1,8 +1,7 @@
-import React from 'react'
-import { Row, Col } from 'react-bootstrap'
+import React from "react";
+import { Row, Col } from "react-bootstrap";
 
 export default function PokemonDetail({ pokemon }) {
-
   return (
     <div>
       {pokemon.name}
@@ -11,20 +10,19 @@ export default function PokemonDetail({ pokemon }) {
       <Row>
         <Col md={6}>
           <ul>
-            {pokemon && pokemon.moves.map(move => (
-              <li>{move.move.name}</li>
-            ))}
+            {pokemon &&
+              pokemon.moves.map((move, index) => (
+                <li key={index}>{move.move.name}</li>
+              ))}
           </ul>
-
         </Col>
         <Col md={6}>
-          {pokemon && pokemon.types.map(type => (
-            <li>{type.type.name}</li>
-          ))}
-
+          {pokemon &&
+            pokemon.types.map((type, index) => (
+              <li key={index}>{type.type.name}</li>
+            ))}
         </Col>
       </Row>
-
     </div>
-  )
+  );
 }
