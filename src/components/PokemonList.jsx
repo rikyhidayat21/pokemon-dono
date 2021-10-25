@@ -2,6 +2,7 @@ import React from 'react'
 import { useQuery } from '@apollo/client'
 import { GET_ALL_POKEMONS } from '../graphql/getAllPokemons.jsx'
 import PokemonCard from './PokemonCard.jsx'
+import { Row } from 'react-bootstrap'
 
 export default function PokemonList() {
 
@@ -19,7 +20,9 @@ export default function PokemonList() {
 
   return (
     <div>
-      {data && data.pokemons.results.map((pokemon, index) => <PokemonCard key={index} pokemon={pokemon} />)}
+      <Row>
+        {data && data.pokemons.results.map((pokemon, index) => <PokemonCard key={index} pokemon={pokemon} />)}
+      </Row>
     </div>
   )
 }

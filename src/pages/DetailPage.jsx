@@ -1,5 +1,6 @@
 import { useQuery } from '@apollo/client'
 import React from 'react'
+import { Container } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import PokemonDetail from '../components/PokemonDetail'
 import { GET_POKEMON } from '../graphql/getPokemon'
@@ -16,7 +17,9 @@ export default function DetailPage() {
 
   return (
     <div>
-      <PokemonDetail pokemon={data.pokemon} />
+      <Container>
+        <PokemonDetail pokemon={data.pokemon} />
+      </Container>
     </div>
   )
 }
