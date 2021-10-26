@@ -2,19 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
 import styled from "@emotion/styled";
-import { css } from "@emotion/react";
-
-const Button = styled.button`
-  padding: 32px;
-  background-color: hotpink;
-  font-size: 24px;
-  border-radius: 4px;
-  color: black;
-  font-weight: bold;
-  &:hover {
-    color: white;
-  }
-`;
 
 const PokemonTitleCard = styled.div`
   text-align: center;
@@ -23,7 +10,7 @@ const PokemonTitleCard = styled.div`
 
 const PokemonOwnedCard = styled.div`
   text-align: center;
-  background-color: greenyellow;
+  background-color: white;
 `;
 
 export default function PokemonCard({ name, artwork, owned }) {
@@ -41,29 +28,36 @@ export default function PokemonCard({ name, artwork, owned }) {
   const Image = styled.img`
     width: 100%;
     border-radius: 12px;
-    height: 250px;
     background-color: whitesmoke;
     margin-bottom: 10px;
   `;
 
+  const CardPoke = styled.div`
+    background-color: yellow;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    border: 1px solid #bacdd8;
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    &:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      transform: scale(1.1);
+    }
+  `
+
   return (
     <>
       <Col md={4} xs={6} lg={3}>
-        <div
-          style={{
-            backgroundColor: "yellow",
-            marginTop: "2vh",
-            border: "1px solid #bacdd8",
-            padding: "8px",
-            borderRadius: "12px",
-          }}
-        >
-          <PokemonTitleCard>{name}</PokemonTitleCard>
-          <Link to={`/pokemon/${name}`}>
-            {/* <img src={artwork} width="100%" alt={name} /> */}
-            <Image src={artwork} alt={name} />
-          </Link>
-          <PokemonOwnedCard>Owned: </PokemonOwnedCard>
+        <div>
+          <CardPoke>
+            <PokemonTitleCard>{name}</PokemonTitleCard>
+            <Link to={`/pokemon/${name}`}>
+              {/* <img src={artwork} width="100%" alt={name} /> */}
+              <Image src={artwork} alt={name} />
+            </Link>
+            <PokemonOwnedCard>Owned: </PokemonOwnedCard>
+          </CardPoke>
         </div>
       </Col>
     </>
