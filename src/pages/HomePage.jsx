@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PokemonList from "../components/PokemonList";
 import { Container } from "react-bootstrap";
 import { useQuery } from "@apollo/client";
 import { GET_ALL_POKEMONS } from "../graphql/getAllPokemons";
 
 export default function HomePage() {
+  const [pokemons, setPokemons] = useState([]);
+
   const gqlVariables = {
     limit: 15,
     offset: 1,
@@ -14,13 +16,33 @@ export default function HomePage() {
     variables: gqlVariables,
   });
 
+  useEffect(() => {
+    let getPokemons;
+
+    if (JSON.parse(localStorage.getItem("pokemonList"))) {
+      getPokemons = JSON.parse(localStorage.getItem("pokemonList"));
+    } else {
+      getPokemons = data.pokemons.results || [];
+    }
+
+    const updatePokemon = getPokemons.map((poke) => {
+      return {
+        ...poke,
+        owned: poke.owned ? poke.owned : 0,
+      };
+    });
+
+    setPokemons(updatePokemon);
+    localStorage.setItem("pokemonList", JSON.stringify(updatePokemon));
+  }, []);
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Shit happened...</p>;
 
   return (
     <div>
       <Container>
-        <PokemonList pokemons={data.pokemons} />
+        <PokemonList pokemons={pokemons} />
       </Container>
     </div>
   );

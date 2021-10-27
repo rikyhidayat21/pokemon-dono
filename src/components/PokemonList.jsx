@@ -8,7 +8,7 @@ export default function PokemonList({ pokemons }) {
     <div>
       <Row>
         {pokemons &&
-          pokemons.results.map((pokemon, index) => (
+          pokemons.map((pokemon, index) => (
             <PokemonCard
               key={index}
               name={pokemon.name}
