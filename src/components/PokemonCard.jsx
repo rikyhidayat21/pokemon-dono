@@ -1,9 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
-import { CardPoke, Image, PokemonOwnedCard, PokemonTitleCard } from '../components/pokemon-item/Card'
+import {
+  CardPoke,
+  Image,
+  PokemonOwnedCard,
+  PokemonTitleCard,
+} from "../components/pokemon-item/Card";
 
-export default function PokemonCard({ name, artwork, owned }) {
+export default function PokemonCard({ name, artwork, owned, nickname }) {
   const checkOwnedPokemon = () => {
     const myPokemons = JSON.parse(localStorage.getItem("myPokemons"));
     if (myPokemons) {
@@ -25,7 +30,9 @@ export default function PokemonCard({ name, artwork, owned }) {
               {/* <img src={artwork} width="100%" alt={name} /> */}
               <Image src={artwork} alt={name} />
             </Link>
-            <PokemonOwnedCard>Owned: </PokemonOwnedCard>
+            <PokemonOwnedCard>
+              {nickname ? nickname : `Owned: ${owned + checkOwnedPokemon()}`}
+            </PokemonOwnedCard>
           </CardPoke>
         </div>
       </Col>

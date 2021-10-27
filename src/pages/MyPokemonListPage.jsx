@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import PokemonCard from "../components/PokemonCard";
 
 export default function MyPokemonListPage() {
   const [pokemons, setPokemons] = useState();
@@ -10,7 +11,16 @@ export default function MyPokemonListPage() {
   return (
     <div>
       {pokemons ? (
-        pokemons.map((poke, index) => <>{poke.name}</>)
+        pokemons.map((poke, index) => {
+          return (
+            <PokemonCard
+              key={index}
+              name={poke.name}
+              image={poke.artwork}
+              nickname={poke.nickname}
+            />
+          );
+        })
       ) : (
         <>
           <p>NO POKEMON</p>
