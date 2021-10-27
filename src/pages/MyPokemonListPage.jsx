@@ -16,7 +16,7 @@ export default function MyPokemonListPage() {
             <PokemonCard
               key={index}
               name={poke.name}
-              image={poke.artwork}
+              artwork={poke.image}
               nickname={poke.nickname}
             />
           );
