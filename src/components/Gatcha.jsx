@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import styled from "@emotion/styled";
-import { css } from "@emotion/react";
 import { Link } from "react-router-dom";
-
-const breakpoints = [576, 768, 992, 1200];
-
-const mq = breakpoints.map((bp) => `@media (max-width: ${bp}px)`);
+import happy from "../images/happy.png";
+import sad from "../images/sad.png";
+import Loader from "./pokemon-item/Loader";
 
 const Button = styled("div")`
   padding: 10px;
@@ -20,9 +18,10 @@ const Button = styled("div")`
 const ButtonMove = () => {
   return (
     <div
-      css={{
+      style={{
         display: "flex",
-        // justifyContent: 'space-around',
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <Link to="/">
@@ -104,43 +103,46 @@ export default function Gatcha({ image, name }) {
     }
   };
   return (
-    <div
-      css={{
-        [mq[1]]: {
-          marginTop: "3rem",
-        },
-      }}
-    >
+    <div style={{ marginTop: "3rem" }}>
       {!statusVisible ? (
-        <img
-          src="../../public/pokeball.png"
-          alt="pokeball"
-          width={250}
-          height={250}
-          css={{
-            animation: "rotation 10s infinite linear",
-          }}
-        />
+        <>
+          <div>
+            <Loader />
+          </div>
+        </>
       ) : (
         <>
           {status === "success" ? (
             <>
-              <div className="nickname">
-                <div css={{ marginBottom: "20px" }}> Congratulations </div>
+              <div
+                style={{
+                  textAlign: "center",
+                }}
+              >
+                <div
+                  style={{
+                    marginBottom: "20px",
+                    fontSize: "28px",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  {" "}
+                  Congratulations{" "}
+                </div>
                 {afterSubmit ? (
                   <>
                     <div>
                       <img
-                        src="../../public/happy.png"
+                        src={happy}
                         alt="pokeball"
                         width={150}
                         height={150}
                       />
-                      <div css={{ fontSize: "20px", marginTop: "10px" }}>
+                      <div style={{ fontSize: "20px", marginTop: "10px" }}>
                         {" "}
                         Success Add Pokemon{" "}
                       </div>
-                      <div css={{ marginTop: "10px" }}>
+                      <div style={{ marginTop: "10px" }}>
                         <ButtonMove />
                       </div>
                     </div>
@@ -150,9 +152,9 @@ export default function Gatcha({ image, name }) {
                     <div>
                       <input
                         type="name"
-                        placeholder="Enter Pokemon Nickname"
-                        css={{
-                          boxShadow: "rgb(49 53 59 / 12%) 0px 1px 25px 6px",
+                        placeholder="Enter Nickname"
+                        style={{
+                          boxShadow: "10px 10px 5px #aaaaaa",
                           backgroundColor: "white",
                           border: "1px solid white",
                           width: "300px",
@@ -167,14 +169,15 @@ export default function Gatcha({ image, name }) {
                     <div>
                       <input
                         type="submit"
-                        css={{
+                        style={{
                           padding: "10px",
-                          boxShadow: "rgb(49 53 59 / 12%) 0px 1px 25px 6px",
+                          boxShadow: "10px 10px 5px #aaaaaa",
                           backgroundColor: "white",
                           borderRadius: "5px",
                           cursor: "pointer",
                           width: "100px",
                           marginTop: "20px",
+                          marginBottom: "20px",
                           borderColor: "white",
                         }}
                       />
@@ -186,18 +189,18 @@ export default function Gatcha({ image, name }) {
           ) : (
             status === "failed" && (
               <>
-                <div>
-                  <img
-                    src="../../public/sad.png"
-                    alt="pokeball"
-                    width={150}
-                    height={150}
-                  />
-                  <div css={{ fontSize: "20px", marginTop: "10px" }}>
+                <div
+                  style={{
+                    textAlign: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <img src={sad} alt="pokeball" width={150} height={150} />
+                  <div style={{ fontSize: "20px", marginTop: "10px" }}>
                     {" "}
                     Catch failed.{" "}
                   </div>
-                  <div css={{ marginTop: "10px" }}>
+                  <div style={{ marginTop: "10px", marginBottom: "10px" }}>
                     <ButtonMove />
                   </div>
                 </div>
