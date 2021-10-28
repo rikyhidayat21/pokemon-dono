@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Col } from "react-bootstrap";
 import {
+  Button,
   CardPoke,
   Image,
   PokemonOwnedCard,
@@ -9,6 +10,8 @@ import {
 } from "../components/pokemon-item/Card";
 
 export default function PokemonCard({ name, artwork, owned, nickname }) {
+  const location = useLocation();
+  console.log(location, "<== ");
   const checkOwnedPokemon = () => {
     const myPokemons = JSON.parse(localStorage.getItem("myPokemons"));
     if (myPokemons) {
@@ -33,6 +36,20 @@ export default function PokemonCard({ name, artwork, owned, nickname }) {
             <PokemonOwnedCard>
               {nickname ? nickname : `Owned: ${owned + checkOwnedPokemon()}`}
             </PokemonOwnedCard>
+            {location.pathname === "/mypokemons" ? (
+              <div
+                style={{
+                  textAlign: "center",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginTop: "10px",
+                }}
+              >
+                <Button>Remove</Button>
+              </div>
+            ) : (
+              <>{""}</>
+            )}
           </CardPoke>
         </div>
       </Col>

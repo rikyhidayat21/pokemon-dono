@@ -30,3 +30,12 @@ export const Image = styled.img`
   background-color: whitesmoke;
   margin-bottom: 10px;
 `;
+
+export const Button = styled("div")`
+  padding: 2px;
+  box-shadow: rgb(49 53 59 / 12%) 0px 1px 25px 6px;
+  background-color: red;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 5px;
+`;
