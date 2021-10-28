@@ -30,7 +30,16 @@ export default function MyPokemonListPage() {
             })
           ) : (
             <>
-              <p>NO POKEMON</p>
+              <div
+                style={{
+                  justifyContent: "center",
+                  textAlign: "center",
+                  textTransform: "uppercase",
+                  marginTop: "10rem",
+                }}
+              >
+                <p>you don't have any pokemon</p>
+              </div>
             </>
           )}
         </Row>
