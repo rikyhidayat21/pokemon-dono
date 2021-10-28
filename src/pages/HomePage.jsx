@@ -3,6 +3,7 @@ import PokemonList from "../components/PokemonList";
 import { Container } from "react-bootstrap";
 import { useQuery } from "@apollo/client";
 import { GET_ALL_POKEMONS } from "../graphql/getAllPokemons";
+import Loader from "../components/pokemon-item/Loader";
 
 export default function HomePage() {
   const [pokemons, setPokemons] = useState([]);
@@ -36,7 +37,7 @@ export default function HomePage() {
     localStorage.setItem("pokemonList", JSON.stringify(updatePokemon));
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Shit happened...</p>;
 
   return (

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import happy from "../images/happy.png";
 import sad from "../images/sad.png";
 import Loader from "./pokemon-item/Loader";
+import PokeToast from "./pokemon-item/PokeToast";
 
 const Button = styled("div")`
   padding: 10px;
@@ -79,7 +80,7 @@ export default function Gatcha({ image, name }) {
           poke.nickname.toLowerCase() === nickname.toLowerCase()
       );
       if (findPokemon) {
-        alert("name already exist");
+        return <PokeToast title="Name already exist" bg="danger" />;
       } else {
         const myPokemons = [
           {
@@ -96,9 +97,11 @@ export default function Gatcha({ image, name }) {
           JSON.stringify(updatePokemonsWithExisting)
         );
 
-        alert("success add poke to poke list");
-
         setAfterSubmit(true);
+
+        return (
+          <PokeToast title="Success add pokemon to pokemon list" bg="success" />
+        );
       }
     }
   };
