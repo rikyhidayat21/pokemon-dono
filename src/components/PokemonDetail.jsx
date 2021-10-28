@@ -1,13 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Row, Col } from "react-bootstrap";
 import { CardPoke, Image, PokemonTitleCard } from "./pokemon-item/Card";
 import { Badge } from "./pokemon-item/Badge";
 import Gatcha from "./Gatcha";
 
 export default function PokemonDetail({ pokemon }) {
+  const [isGatcha, setIsGatcha] = useState();
   useEffect(() => {
     console.log(pokemon, "<== pokemon");
   }, []);
+
+  const gatchaPokemon = () => {
+    setIsGatcha(true);
+  };
   return (
     <div
       style={{
@@ -15,8 +20,13 @@ export default function PokemonDetail({ pokemon }) {
       }}
     >
       <Row>
-        <div className="text-center">CATCH</div>
-        <Gatcha image={pokemon.sprites.front_default} name={pokemon.name} />
+        {!isGatcha ? (
+          <button onClick={gatchaPokemon}>Gatcha</button>
+        ) : (
+          <>
+            <Gatcha image={pokemon.sprites.front_default} name={pokemon.name} />
+          </>
+        )}
         <hr />
       </Row>
 
