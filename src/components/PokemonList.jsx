@@ -6,7 +6,11 @@ import styled from "@emotion/styled";
 export default function PokemonList({ pokemons }) {
   return (
     <div>
-      <Row>
+      <Row
+        style={{
+          marginTop: "70px",
+        }}
+      >
         {pokemons &&
           pokemons.map((pokemon, index) => (
             <PokemonCard
