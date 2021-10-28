@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client'
+import { gql } from "@apollo/client";
 
 export const GET_POKEMON = gql`
   query pokemon($name: String!) {
@@ -18,6 +18,11 @@ export const GET_POKEMON = gql`
           name
         }
       }
+      abilities {
+        ability {
+          name
+        }
+      }
     }
   }
-`
+`;

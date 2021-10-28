@@ -107,6 +107,30 @@ export default function PokemonDetail({ pokemon }) {
           </CardPoke>
         </Col>
         <Col md={8}>
+          <div
+            style={{
+              marginTop: "20px",
+              borderBottom: "1px dotted blue",
+              textAlign: "center",
+            }}
+          >
+            ABILITIES
+          </div>
+          {pokemon &&
+            pokemon.abilities.map((ability, index) => (
+              <Badge key={index} backgroundColor="purple">
+                {ability.ability.name}
+              </Badge>
+            ))}
+          <div
+            style={{
+              marginTop: "20px",
+              borderBottom: "1px dotted blue",
+              textAlign: "center",
+            }}
+          >
+            MOVES
+          </div>
           {pokemon &&
             pokemon.moves.map((move, index) => (
               <Badge key={index} backgroundColor="red">
