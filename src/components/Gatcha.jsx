@@ -80,7 +80,7 @@ export default function Gatcha({ image, name }) {
           poke.nickname.toLowerCase() === nickname.toLowerCase()
       );
       if (findPokemon) {
-        return <PokeToast title="Name already exist" bg="danger" />;
+        alert("Name already exist");
       } else {
         const myPokemons = [
           {
@@ -97,11 +97,9 @@ export default function Gatcha({ image, name }) {
           JSON.stringify(updatePokemonsWithExisting)
         );
 
-        setAfterSubmit(true);
+        alert("Success add pokemon to pokemon list");
 
-        return (
-          <PokeToast title="Success add pokemon to pokemon list" bg="success" />
-        );
+        setAfterSubmit(true);
       }
     }
   };
