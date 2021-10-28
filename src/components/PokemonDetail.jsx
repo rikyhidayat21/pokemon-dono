@@ -9,7 +9,11 @@ export default function PokemonDetail({ pokemon }) {
     console.log(pokemon, "<== pokemon");
   }, []);
   return (
-    <div>
+    <div
+      style={{
+        marginTop: "70px",
+      }}
+    >
       <Row>
         <div className="text-center">CATCH</div>
         <Gatcha image={pokemon.sprites.front_default} name={pokemon.name} />

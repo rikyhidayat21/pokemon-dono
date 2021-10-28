@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
-import mylist from "../images/mylist.png";
+import mylist from "../images/pokesave.png";
 
 const Navbar = styled.nav`
   width: 100%;
@@ -23,7 +23,7 @@ export default function Header() {
     <div>
       <Navbar>
         <Link to="/">
-          <img src={logo} alt="pokemon" width={150} height={50} />
+          <img src={logo} alt="pokemon" width={120} height={50} />
         </Link>
         <Link to="/mypokemons">
           <img src={mylist} alt="pokemon" width={50} height={50} />
