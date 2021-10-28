@@ -11,7 +11,6 @@ import {
 
 export default function PokemonCard({ name, artwork, owned, nickname }) {
   const location = useLocation();
-  console.log(location, "<== ");
   const checkOwnedPokemon = () => {
     const myPokemons = JSON.parse(localStorage.getItem("myPokemons"));
     if (myPokemons) {
