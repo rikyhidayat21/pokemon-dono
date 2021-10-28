@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Row, Col } from "react-bootstrap";
 import { CardPoke, Image, PokemonTitleCard } from "./pokemon-item/Card";
 import { Badge } from "./pokemon-item/Badge";
@@ -7,9 +7,6 @@ import pokeball from "../images/pokeball.png";
 
 export default function PokemonDetail({ pokemon }) {
   const [isGatcha, setIsGatcha] = useState();
-  useEffect(() => {
-    console.log(pokemon, "<== pokemon");
-  }, []);
 
   const gatchaPokemon = () => {
     setIsGatcha(true);
