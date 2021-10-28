@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import happy from "../images/happy.png";
 import sad from "../images/sad.png";
 import Loader from "./pokemon-item/Loader";
-import PokeToast from "./pokemon-item/PokeToast";
 
 const Button = styled("div")`
   padding: 10px;

@@ -1,7 +1,6 @@
 import React from "react";
 import PokemonCard from "./PokemonCard.jsx";
 import { Row } from "react-bootstrap";
-import styled from "@emotion/styled";
 
 export default function PokemonList({ pokemons }) {
   return (
